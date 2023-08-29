@@ -12,7 +12,9 @@ class JournalRequest extends FormRequest
             'detection_date'         => ['required', 'date'],
             'group_notice_date'      => ['required', 'date'],
             'zav_sector_notice_date' => ['required', 'date'],
-            'is_closed'              => ['required'],
+            'attacker'               => ['required', 'array'],
+            'victim'                 => ['required', 'array'],
+            'is_closed'              => ['required', 'boolean'],
         ];
     }
 

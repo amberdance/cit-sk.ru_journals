@@ -16,9 +16,9 @@ class JournalResource extends JsonResource
             'detection_date'         => $this->detection_date,
             'group_notice_date'      => $this->group_notice_date,
             'zav_sector_notice_date' => $this->zav_sector_notice_date,
+            'attacker'               => $this->attacker,
+            'victim'                 => $this->victim,
             'is_closed'              => $this->is_closed,
-            'created_at'             => $this->created_at,
-            'updated_at'             => $this->updated_at,
         ];
     }
 }

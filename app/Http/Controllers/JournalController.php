@@ -5,9 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Requests\JournalRequest;
 use App\Http\Resources\JournalResource;
 use App\Models\Journal;
+use App\Service\JournalService;
 
 class JournalController extends Controller
 {
+
+    private JournalService $journalService;
+
+    /**
+     * @param  JournalService  $journalService
+     */
+    public function __construct(JournalService $journalService)
+    {
+        $this->journalService = $journalService;
+    }
+
+
     public function index()
     {
         return JournalResource::collection(Journal::all());
@@ -15,7 +28,7 @@ class JournalController extends Controller
 
     public function store(JournalRequest $request)
     {
-        return new JournalResource(Journal::create($request->validated()));
+        return $this->journalService->create($request->validated());
     }
 
     public function show(Journal $journal)

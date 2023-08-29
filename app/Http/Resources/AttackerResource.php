@@ -17,8 +17,6 @@ class AttackerResource extends JsonResource
             'type'        => $this->type,
             'description' => $this->description,
             'country'     => $this->country,
-            'attacker'    => $this->whenLoaded('attacker'),
-            'victim'      => $this->whenLoaded('victim')
         ];
     }
 }

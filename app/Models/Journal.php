@@ -11,24 +11,30 @@ class Journal extends Model
     use HasFactory;
 
     protected $fillable = [];
+    protected $hidden = [
+        "deleted_at"
+    ];
 
     protected $casts = [
         'detection_date'         => 'datetime',
         'group_notice_date'      => 'datetime',
         'zav_sector_notice_date' => 'datetime',
+        "is_closed"              => "boolean"
     ];
 
     protected $attributes = [
         "is_closed" => false
     ];
 
-    protected function attacker(): HasOne
+    protected $with = ['attacker', 'victim'];
+
+    public function attacker(): HasOne
     {
-        return $this->hasOne(Attacker::class);
+        return $this->hasOne(Attacker::class, "id", "attacker_id");
     }
 
-    protected function victim(): HasOne
+    public function victim(): HasOne
     {
-        return $this->hasOne(Victim::class);
+        return $this->hasOne(Victim::class, "id", "victim_id");
     }
 }

@@ -13,4 +13,8 @@ class Attacker extends Model
     protected $fillable = [];
 
 
+//    public function journal(): HasOne
+//    {
+//        return $this->hasOne(Journal::class);
+//    }
 }

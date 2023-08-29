@@ -2,25 +2,24 @@
 
 namespace App\Repository;
 
-use App\Http\Requests\JournalRequest;
-use App\JournalCollection;
 use App\Models\Journal;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 interface JournalRepository
 {
     /**
-     * @param  JournalRequest  $journalRequest
+     * @param  array  $data
      *
      * @return Journal
      */
-    function create(JournalRequest $journalRequest): Journal;
+    function create(array $data): Journal;
 
     /**
      * @param  array  $filter
      *
-     * @return JournalCollection
+     * @return AnonymousResourceCollection
      */
-    function findAll(array $filter = []): JournalCollection;
+    function findAll(array $filter = []): AnonymousResourceCollection;
 
     /**
      * @param  int  $id
@@ -30,11 +29,11 @@ interface JournalRepository
     function findById(int $id): Journal;
 
     /**
-     * @param  JournalRequest  $journalRequest
+     * @param  array  $data
      *
      * @return Journal
      */
-    function update(JournalRequest $journalRequest): Journal;
+    function update(array $data): Journal;
 
     /**
      * @param  int  $id

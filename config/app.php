@@ -158,6 +158,8 @@ return [
     'providers' => ServiceProvider::defaultProviders()->merge([
         App\Providers\AuthServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\RepositoryInjectionServiceProvider::class,
+        App\Providers\ServiceInjectionServiceProvider::class,
     ])->toArray(),
 
     /*

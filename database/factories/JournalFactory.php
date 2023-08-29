@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Attacker;
 use App\Models\Journal;
+use App\Models\Victim;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
@@ -16,15 +18,22 @@ class JournalFactory extends Factory
             'detection_date'         => Carbon::now(),
             'group_notice_date'      => Carbon::now(),
             'zav_sector_notice_date' => Carbon::now(),
-            'attack_type'            => $this->faker->word(),
-            'attack_description'     => $this->faker->text(),
-            'attacker_ipv4'          => $this->faker->word(),
-            'victim_name'            => $this->faker->name(),
-            'victim_owner'           => $this->faker->word(),
-            'victim_ipv4'            => $this->faker->word(),
-            'is_closed'              => $this->faker->boolean(),
+            'is_closed'              => false,
             'created_at'             => Carbon::now(),
             'updated_at'             => Carbon::now(),
         ];
+    }
+
+    public function makeJournalWithRelations(): array
+    {
+        $journalFactory = Journal::factory()->make();
+        $victimFactory = Victim::factory()->make();
+        $attackerFactory = Attacker::factory()->make();
+
+        return array_merge($journalFactory->toArray(),
+            [
+                "victim"   => $victimFactory->toArray(),
+                "attacker" => $attackerFactory->toArray()
+            ]);
     }
 }
