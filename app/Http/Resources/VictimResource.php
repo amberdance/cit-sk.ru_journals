@@ -12,11 +12,9 @@ class VictimResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'         => $this->id,
-            'ipv4'       => $this->ipv4,
-            'owner'      => $this->owner,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'id'    => $this->id,
+            'ipv4'  => $this->ipv4,
+            'owner' => $this->owner,
         ];
     }
 }

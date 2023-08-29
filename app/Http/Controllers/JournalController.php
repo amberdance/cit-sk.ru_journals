@@ -6,6 +6,7 @@ use App\Http\Requests\JournalRequest;
 use App\Http\Resources\JournalResource;
 use App\Models\Journal;
 use App\Service\JournalService;
+use Illuminate\Http\Request;
 
 class JournalController extends Controller
 {
@@ -33,20 +34,13 @@ class JournalController extends Controller
 
     public function show(Journal $journal)
     {
-        return new JournalResource($journal);
     }
 
-    public function update(JournalRequest $request, Journal $journal)
+    public function update(Request $request, Journal $journal)
     {
-        $journal->update($request->validated());
-
-        return new JournalResource($journal);
     }
 
     public function destroy(Journal $journal)
     {
-        $journal->delete();
-
-        return response()->json();
     }
 }
