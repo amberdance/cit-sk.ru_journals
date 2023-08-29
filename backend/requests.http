@@ -1,8 +1,8 @@
-GET http://localhost:8000/api/journals
+GET http://localhost:9000/api/journals
 Accept: application/json
 
 ###
-POST http://localhost:8000/api/journals
+POST http://localhost:9000/api/journals
 Content-Type: application/json
 
 {

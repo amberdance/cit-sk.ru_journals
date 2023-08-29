@@ -37,7 +37,7 @@
     },
     "scripts": {
         "tests": "@php artisan test",
-        "run server:dev": "@php artisan serve --env=local",
+        "run server:dev": "@php artisan serve --env=local --port=9000",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
