@@ -3,16 +3,20 @@
 namespace App\Repository;
 
 use App\Http\Resources\JournalCollection;
+use App\Models\Attacker;
 use App\Models\Journal;
+use App\Models\Victim;
 
 interface JournalRepository
 {
     /**
-     * @param  array  $data
+     * @param  array     $data
+     * @param  Attacker  $attacker
+     * @param  Victim    $victim
      *
      * @return Journal
      */
-    function create(array $data): Journal;
+    function create(array $data, Attacker $attacker, Victim $victim): Journal;
 
     /**
      * @return JournalCollection
