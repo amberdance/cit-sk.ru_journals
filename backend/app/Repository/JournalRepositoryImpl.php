@@ -3,10 +3,10 @@
 namespace App\Repository;
 
 
+use App\Http\Resources\JournalCollection;
 use App\Models\Attacker;
 use App\Models\Journal;
 use App\Models\Victim;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\DB;
 
 class JournalRepositoryImpl implements JournalRepository
@@ -46,9 +46,9 @@ class JournalRepositoryImpl implements JournalRepository
     /**
      * @inheritDoc
      */
-    public function findAll(array $filter = []): AnonymousResourceCollection
+    public function findAll(): JournalCollection
     {
-        // TODO: Implement findById() method.
+        return new JournalCollection(Journal::all());
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
 use App\Repository\JournalRepository;
 
@@ -28,4 +29,11 @@ class JournalServiceImpl implements JournalService
     }
 
 
+    /**
+     * @inheritDoc
+     */
+    public function findAll(): JournalCollection
+    {
+        return $this->journalRepository->findAll();
+    }
 }

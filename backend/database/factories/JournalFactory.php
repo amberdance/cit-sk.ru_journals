@@ -18,9 +18,11 @@ class JournalFactory extends Factory
             'detection_date'         => Carbon::now(),
             'group_notice_date'      => Carbon::now(),
             'zav_sector_notice_date' => Carbon::now(),
-            'is_closed'              => false,
+            'attacker_id'            => Attacker::factory()->create(),
+            'victim_id'              => Victim::factory()->create(),
             'created_at'             => Carbon::now(),
             'updated_at'             => Carbon::now(),
+            'is_closed'              => false,
         ];
     }
 

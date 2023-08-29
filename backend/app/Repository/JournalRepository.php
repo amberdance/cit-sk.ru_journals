@@ -2,8 +2,8 @@
 
 namespace App\Repository;
 
+use App\Http\Resources\JournalCollection;
 use App\Models\Journal;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 interface JournalRepository
 {
@@ -15,11 +15,9 @@ interface JournalRepository
     function create(array $data): Journal;
 
     /**
-     * @param  array  $filter
-     *
-     * @return AnonymousResourceCollection
+     * @return JournalCollection
      */
-    function findAll(array $filter = []): AnonymousResourceCollection;
+    function findAll(): JournalCollection;
 
     /**
      * @param  int  $id
