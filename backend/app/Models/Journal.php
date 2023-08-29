@@ -2,10 +2,21 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+
+/**
+ * @property int      $id
+ * @property int      $attacker_id
+ * @property int      $victim_id
+ * @property Datetime $detection_date
+ * @property Datetime $group_notice_date
+ * @property Datetime $zav_sector_notice_date
+ * @property boolean  $is_closed
+ */
 class Journal extends Model
 {
     use HasFactory;

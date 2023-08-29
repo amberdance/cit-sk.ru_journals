@@ -5,6 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+/**
+ * @property int    $id
+ * @property string $ipv4
+ * @property string $type
+ * @property string $description
+ * @property string $country
+ */
 class Attacker extends Model
 {
     use HasFactory;
@@ -13,8 +21,4 @@ class Attacker extends Model
     protected $fillable = [];
 
 
-//    public function journal(): HasOne
-//    {
-//        return $this->hasOne(Journal::class);
-//    }
 }

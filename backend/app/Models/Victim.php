@@ -5,6 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int    $id
+ * @property string $ipv4
+ * @property string $owner
+ */
 class Victim extends Model
 {
     use HasFactory;
@@ -12,8 +17,4 @@ class Victim extends Model
     public $timestamps = false;
     protected $fillable = [];
 
-//    public function journal(): HasOne
-//    {
-//        return $this->hasOne(Journal::class);
-//    }
 }
