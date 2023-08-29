@@ -1,1 +1,27 @@
-GET localhost:8000/api/journals
+GET http://localhost:8000/api/journals
+Accept: application/json
+
+###
+POST http://localhost:8000/api/journals
+Content-Type: application/json
+
+{
+  "is_closed": false,
+  "detection_date": "2023-08-29T19:34:08",
+  "group_notice_date": "2023-08-29T19:34:08",
+  "zav_sector_notice_date": "2023-08-29T19:34:08",
+  "created_at": "2023-08-29T19:34:08",
+  "updated_at": "2023-08-29T19:34:08",
+  "victim": {
+    "ipv4": "242.102.40.248",
+    "owner": "repellendus"
+  },
+  "attacker": {
+    "ipv4": "35.29.229.187",
+    "type": "occaecati",
+    "description": "Quisquam enim qui voluptatem sed alias veniam corrupti. Harum consequatur totam inventore voluptates nam. Qui aut qui non provident at. Tempore fugit aut enim sit et exercitationem.",
+    "country": "Индия"
+  }
+}
+
+###
