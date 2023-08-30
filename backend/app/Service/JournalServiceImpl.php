@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Dto\Journal\JournalDto;
+use App\Dto\Journal\JournalCreateDto;
 use App\Dto\Journal\JournalUpdateDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
@@ -31,7 +31,8 @@ class JournalServiceImpl implements JournalService {
     /**
      * @inheritDoc
      */
-    public function create(JournalDto $journalRequestDto): JournalResource {
+    public function create(JournalCreateDto $journalRequestDto): JournalResource
+    {
         return DB::transaction(function () use ($journalRequestDto) {
             $attacker = $this->attackerRepository->create($journalRequestDto->attacker);
             $victim = $this->victimRepository->create($journalRequestDto->victim);

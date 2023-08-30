@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Dto\Journal\JournalDto;
+use App\Dto\Journal\JournalCreateDto;
 use App\Dto\Journal\JournalUpdateDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
@@ -12,13 +12,13 @@ use App\Models\Victim;
 
 interface JournalRepository {
     /**
-     * @param  \App\Dto\Journal\JournalDto  $journalRequestDto
-     * @param  Attacker                     $attacker
-     * @param  Victim                       $victim
+     * @param  JournalCreateDto  $journalRequestDto
+     * @param  Attacker          $attacker
+     * @param  Victim            $victim
      *
      * @return Journal
      */
-    function create(JournalDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal;
+    function create(JournalCreateDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal;
 
     /**
      * @return JournalCollection
@@ -33,7 +33,7 @@ interface JournalRepository {
     function findById(int $id): JournalResource;
 
     /**
-     * @param  \App\Dto\Journal\JournalUpdateDto  $journalUpdateDto
+     * @param  JournalUpdateDto  $journalUpdateDto
      *
      * @return JournalResource
      */

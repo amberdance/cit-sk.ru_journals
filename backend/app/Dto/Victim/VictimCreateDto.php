@@ -4,15 +4,17 @@ namespace App\Dto\Victim;
 
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
-class VictimDto extends ValidatedDTO {
+class VictimCreateDto extends ValidatedDTO
+{
 
     public string $ipv4;
     public string $owner;
 
-    protected function rules(): array {
+    protected function rules(): array
+    {
         return [
-                'ipv4'  => ['required', 'ipv4'],
-                'owner' => ['required', 'string'],
+            'ipv4'  => ['required', 'ipv4'],
+            'owner' => ['required', 'string'],
         ];
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Dto\Attacker\AttackerDto;
+use App\Dto\Attacker\AttackerCreateDto;
 use App\Models\Attacker;
 
 class AttackerRepositoryImpl implements AttackerRepository {
@@ -10,7 +10,8 @@ class AttackerRepositoryImpl implements AttackerRepository {
     /**
      * @inheritDoc
      */
-    function create(AttackerDto $attackerDto): Attacker {
+    function create(AttackerCreateDto $attackerDto): Attacker
+    {
         $attacker = new Attacker();
         $attacker->ipv4 = $attackerDto->ipv4;
         $attacker->type = $attackerDto->type;

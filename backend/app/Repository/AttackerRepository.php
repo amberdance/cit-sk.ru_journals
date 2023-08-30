@@ -2,15 +2,15 @@
 
 namespace App\Repository;
 
-use App\Dto\Attacker\AttackerDto;
+use App\Dto\Attacker\AttackerCreateDto;
 use App\Models\Attacker;
 
 interface AttackerRepository
 {
     /**
-     * @param  \App\Dto\Attacker\AttackerDto  $attackerDto
+     * @param  AttackerCreateDto  $attackerDto
      *
      * @return Attacker
      */
-    function create(AttackerDto $attackerDto): Attacker;
+    function create(AttackerCreateDto $attackerDto): Attacker;
 }

@@ -4,30 +4,33 @@ namespace App\Dto\Attacker;
 
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
-class AttackerUpdateDto extends ValidatedDTO {
+class AttackerUpdateDto extends ValidatedDTO
+{
 
-    public int $id;
+    public ?int $id = null;
     public ?string $ipv4 = null;
     public ?string $type = null;
     public ?string $description = null;
     public ?string $country = null;
 
-    protected function rules(): array {
+    protected function rules(): array
+    {
         return [
-                'id'          => ['integer'],
-                'ipv4'        => ['ipv4'],
-                'type'        => ['string'],
-                'description' => ['string'],
-                'country'     => ['string'],
+            'id'          => ['integer'],
+            'ipv4'        => ['ipv4'],
+            'type'        => ['string'],
+            'description' => ['string'],
+            'country'     => ['string'],
         ];
-
     }
 
-    protected function defaults(): array {
+    protected function defaults(): array
+    {
         return [];
     }
 
-    protected function casts(): array {
+    protected function casts(): array
+    {
         return [];
     }
 

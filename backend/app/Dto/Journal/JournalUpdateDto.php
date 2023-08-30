@@ -9,7 +9,8 @@ use WendellAdriel\ValidatedDTO\Casting\CarbonCast;
 use WendellAdriel\ValidatedDTO\Casting\DTOCast;
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
-class JournalUpdateDto extends ValidatedDTO {
+class JournalUpdateDto extends ValidatedDTO
+{
 
     public int $id;
     public ?DateTime $detection_date = null;
@@ -20,31 +21,34 @@ class JournalUpdateDto extends ValidatedDTO {
     public bool $is_closed = false;
 
 
-    protected function rules(): array {
+    protected function rules(): array
+    {
         return [
-                'id'                     => ['required', 'integer'],
-                'detection_date'         => ['date'],
-                'group_notice_date'      => ['date'],
-                'zav_sector_notice_date' => ['date'],
-                'attacker'               => ['array'],
-                'victim'                 => ['array'],
-                'is_closed'              => ['boolean'],
+            'id'                     => ['required', 'integer'],
+            'detection_date'         => ['date'],
+            'group_notice_date'      => ['date'],
+            'zav_sector_notice_date' => ['date'],
+            'attacker'               => ['array'],
+            'victim'                 => ['array'],
+            'is_closed'              => ['boolean'],
         ];
     }
 
-    protected function casts(): array {
+    protected function casts(): array
+    {
         return [
-                "attacker"               => new DTOCast(AttackerUpdateDto::class),
-                "victim"                 => new DTOCast(VictimUpdateDto::class),
-                "detection_date"         => new CarbonCast(),
-                "group_notice_date"      => new CarbonCast(),
-                "zav_sector_notice_date" => new CarbonCast(),
+            "attacker"               => new DTOCast(AttackerUpdateDto::class),
+            "victim"                 => new DTOCast(VictimUpdateDto::class),
+            "detection_date"         => new CarbonCast(),
+            "group_notice_date"      => new CarbonCast(),
+            "zav_sector_notice_date" => new CarbonCast(),
         ];
     }
 
-    protected function defaults(): array {
+    protected function defaults(): array
+    {
         return [
-                "is_closed" => false,
+            "is_closed" => false,
         ];
     }
 

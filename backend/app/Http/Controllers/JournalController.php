@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Dto\Journal\JournalDto;
+use App\Dto\Journal\JournalCreateDto;
 use App\Dto\Journal\JournalUpdateDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
@@ -36,7 +36,7 @@ class JournalController extends Controller {
      * @throws MissingCastTypeException
      */
     public function store(Request $request) {
-        return $this->journalService->create(JournalDto::fromRequest($request));
+        return $this->journalService->create(JournalCreateDto::fromRequest($request));
     }
 
     /**

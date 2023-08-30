@@ -4,17 +4,19 @@ namespace App\Dto\Attacker;
 
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
-class AttackerDto extends ValidatedDTO {
+class AttackerCreateDto extends ValidatedDTO
+{
 
     public string $ipv4;
     public string $type;
     public string $description;
     public string $country;
 
-    protected function rules(): array {
+    protected function rules(): array
+    {
         return [
-                'ipv4'        => ['required', 'ipv4'],
-                'type'        => ['required', 'string'],
+            'ipv4'            => ['required', 'ipv4'],
+            'type'            => ['required', 'string'],
                 'description' => ['required', 'string'],
                 'country'     => ['required', 'string'],
         ];

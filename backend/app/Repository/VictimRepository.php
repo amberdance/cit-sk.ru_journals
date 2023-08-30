@@ -2,15 +2,15 @@
 
 namespace App\Repository;
 
-use App\Dto\Victim\VictimDto;
+use App\Dto\Victim\VictimCreateDto;
 use App\Models\Victim;
 
 interface VictimRepository
 {
     /**
-     * @param  VictimDto  $victimDto
+     * @param  VictimCreateDto  $victimDto
      *
      * @return Victim
      */
-    function create(VictimDto $victimDto): Victim;
+    function create(VictimCreateDto $victimDto): Victim;
 }
