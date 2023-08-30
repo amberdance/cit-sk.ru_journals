@@ -7,14 +7,14 @@ use WendellAdriel\ValidatedDTO\ValidatedDTO;
 class VictimUpdateDto extends ValidatedDTO
 {
 
-    public ?int $id = null;
+    public int $id;
     public ?string $ipv4 = null;
     public ?string $owner = null;
 
     protected function rules(): array
     {
         return [
-            'id'    => ['integer'],
+            'id'    => ['required', 'integer'],
             'ipv4'  => ['ipv4'],
             'owner' => ['string'],
         ];
