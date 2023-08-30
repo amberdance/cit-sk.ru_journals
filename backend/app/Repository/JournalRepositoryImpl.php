@@ -5,6 +5,7 @@ namespace App\Repository;
 
 use App\Dto\JournalDto;
 use App\Http\Resources\JournalCollection;
+use App\Http\Resources\JournalResource;
 use App\Models\Attacker;
 use App\Models\Journal;
 use App\Models\Victim;
@@ -37,8 +38,8 @@ class JournalRepositoryImpl implements JournalRepository {
     /**
      * @inheritDoc
      */
-    public function findById(int $id): Journal {
-        // TODO: Implement findById() method.
+    public function findById(int $id): JournalResource {
+        return new JournalResource(Journal::findOrFail($id));
     }
 
     /**

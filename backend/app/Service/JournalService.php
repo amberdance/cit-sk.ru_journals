@@ -23,6 +23,13 @@ interface JournalService {
     /**
      * @param  int  $id
      *
+     * @return JournalResource
+     */
+    function findById(int $id): JournalResource;
+
+    /**
+     * @param  int  $id
+     *
      * @return bool
      */
     function delete(int $id): bool;

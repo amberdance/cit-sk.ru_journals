@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Dto\JournalDto;
 use App\Http\Resources\JournalCollection;
+use App\Http\Resources\JournalResource;
 use App\Models\Attacker;
 use App\Models\Journal;
 use App\Models\Victim;
@@ -26,9 +27,9 @@ interface JournalRepository {
     /**
      * @param  int  $id
      *
-     * @return Journal
+     * @return JournalResource
      */
-    function findById(int $id): Journal;
+    function findById(int $id): JournalResource;
 
     /**
      * @param  array  $data

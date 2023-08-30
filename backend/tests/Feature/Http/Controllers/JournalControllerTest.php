@@ -72,5 +72,14 @@ class JournalControllerTest extends TestCase {
         assertNull(Journal::find($journal->id));
     }
 
+    public function testWhenResourceExistsThenJournalReturned() {
+        $journal = Journal::factory()->create();
+        $this->getJson(self::$endpoint."/".$journal->id)->assertOk();
+    }
+
+    public function testWhenResourceDidNotExistsThen404HttpStatusReturned() {
+        $this->getJson(self::$endpoint.rand(999, 9999))->assertNotFound();
+    }
+
 
 }
