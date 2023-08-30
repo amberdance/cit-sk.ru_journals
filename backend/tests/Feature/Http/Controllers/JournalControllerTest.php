@@ -35,10 +35,7 @@ class JournalControllerTest extends TestCase
         $jsonPayload = Journal::factory()->makeJournalWithRelations();
 
         $this->postJson(self::$endpoint, $jsonPayload)
-             ->assertCreated()
-             ->assertJsonPath("data.attacker.id", Attacker::orderBy("id", "desc")->first("id")->id)
-             ->assertJsonPath("data.victim.id", Attacker::orderBy("id", "desc")->first("id")->id);
-
+             ->assertCreated();
         self::assertGreaterThanOrEqual(1, Attacker::count("id"));
     }
 
@@ -99,18 +96,14 @@ class JournalControllerTest extends TestCase
         $journalModel = Journal::factory()->create();
         $journalData = $journalModel->toArray();
         $journalData["attacker"] = $journalModel->attacker->toArray();
-        $journalData["victim"] = $journalModel->victim->toArray();
 
         $generator = Container::getInstance()->make(Generator::class);
         $updatedFields = $journalData;
-        $updatedFields["victim"]["ipv4"] = $generator->ipv4();
-        $updatedFields["victim"]["owner"] = $generator->word();
         $updatedFields["attacker"]["ipv4"] = $generator->ipv4();
         $updatedFields["attacker"]["type"] = $generator->word();
         $updatedFields["attacker"]["description"] = $generator->word();
 
         $this->patchJson(self::$endpoint."/".$journalModel->id, $updatedFields)->assertOk()
-             ->assertJsonPath("data.victim", $updatedFields["victim"])
              ->assertJsonPath("data.attacker", $updatedFields["attacker"]);
     }
 

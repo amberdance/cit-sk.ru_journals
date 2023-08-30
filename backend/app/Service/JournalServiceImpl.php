@@ -57,15 +57,20 @@ class JournalServiceImpl implements JournalService
     public function update(JournalUpdateDto $journalDto): JournalResource
     {
         return DB::transaction(function () use ($journalDto) {
+            $attacker = null;
+            $victim = null;
+
             if ($journalDto->attacker) {
-                $this->attackerRepository->update($journalDto->attacker);
+                $attacker = $this->attackerRepository->update($journalDto->attacker);
             }
 
             if ($journalDto->victim) {
-                $this->victimRepository->update($journalDto->victim);
+                $victim = $this->victimRepository->update($journalDto->victim);
             }
 
-            return new JournalResource($this->journalRepository->update($journalDto));
+            $journal = $this->journalRepository->update($journalDto, $attacker, $victim);
+
+            return new JournalResource($journal);
         });
     }
 

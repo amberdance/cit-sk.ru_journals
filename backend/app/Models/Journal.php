@@ -5,14 +5,12 @@ namespace App\Models;
 use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 /**
  * @property int      $id
- * @property int      $attacker_id
- * @property int      $victim_id
  * @property Attacker $attacker
  * @property Victim   $victim
  * @property DateTime $detection_date
@@ -35,14 +33,14 @@ class Journal extends Model
     protected $fillable = [];
     protected $with = ['attacker', 'victim'];
 
-    public function attacker(): HasOne
+    public function attacker(): BelongsTo
     {
-        return $this->hasOne(Attacker::class, "id", "attacker_id");
+        return $this->belongsTo(Attacker::class);
     }
 
-    public function victim(): HasOne
+    public function victim(): BelongsTo
     {
-        return $this->hasOne(Victim::class, "id", "victim_id");
+        return $this->belongsTo(Victim::class);
     }
 
 }

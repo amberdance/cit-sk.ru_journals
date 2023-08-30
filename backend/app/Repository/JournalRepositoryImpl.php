@@ -9,7 +9,6 @@ use App\Models\Attacker;
 use App\Models\Journal;
 use App\Models\Victim;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 
 class JournalRepositoryImpl implements JournalRepository
 {
@@ -23,9 +22,38 @@ class JournalRepositoryImpl implements JournalRepository
         $journal->detection_date = $journalDto->detection_date;
         $journal->zav_sector_notice_date = $journalDto->zav_sector_notice_date;
         $journal->group_notice_date = $journalDto->group_notice_date;
-        $journal->attacker_id = $attacker->id;
-        $journal->victim_id = $victim->id;
         $journal->is_closed = false;
+
+        $journal->attacker()->associate($attacker);
+        $journal->victim()->associate($victim);
+        $journal->save();
+
+        return $journal;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function update(JournalUpdateDto $journalDto, ?Attacker $attacker, ?Victim $victim): Journal
+    {
+        $journal = Journal::findOrFail($journalDto->id);
+
+        foreach ($journalDto->toArray() as $key => $value) {
+            if (str_contains($key, "attacker") || str_contains($key, "victim")) {
+                continue;
+            }
+
+            $journal->$key = $value;
+        }
+
+        if ($attacker) {
+            $journal->attacker()->associate($attacker);
+        }
+
+        if ($victim) {
+            $journal->victim()->associate($victim);
+        }
+
         $journal->save();
 
         return $journal;
@@ -45,26 +73,6 @@ class JournalRepositoryImpl implements JournalRepository
     public function findById(int $id): Journal
     {
         return Journal::findOrFail($id);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function update(JournalUpdateDto $journalDto): Journal
-    {
-        $journal = Journal::findOrFail($journalDto->id);
-
-        foreach ($journalDto->toArray() as $key => $value) {
-            if ($journal->$key instanceof Model) {
-                continue;
-            }
-
-            $journal->$key = $value;
-        }
-
-        $journal->save();
-
-        return $journal;
     }
 
     /**

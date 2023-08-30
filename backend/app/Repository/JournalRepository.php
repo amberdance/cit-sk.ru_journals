@@ -35,10 +35,12 @@ interface JournalRepository
 
     /**
      * @param  JournalUpdateDto  $journalDto
+     * @param  Attacker|null     $attacker
+     * @param  Victim|null       $victim
      *
      * @return Journal
      */
-    function update(JournalUpdateDto $journalDto): Journal;
+    function update(JournalUpdateDto $journalDto, ?Attacker $attacker, ?Victim $victim): Journal;
 
     /**
      * @param  int  $id

@@ -29,13 +29,14 @@ class JournalFactory extends Factory
     public function makeJournalWithRelations(): array
     {
         $journalFactory = Journal::factory()->make();
-        $victimFactory = Victim::factory()->make();
         $attackerFactory = Attacker::factory()->make();
+        $victimFactory = Victim::factory()->make();
+
 
         return array_merge($journalFactory->toArray(),
             [
+                "attacker" => $attackerFactory->toArray(),
                 "victim"   => $victimFactory->toArray(),
-                "attacker" => $attackerFactory->toArray()
             ]);
     }
 }
