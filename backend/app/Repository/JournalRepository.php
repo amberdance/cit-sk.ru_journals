@@ -34,11 +34,11 @@ interface JournalRepository
     function create(JournalCreateDto $journalDto, Attacker $attacker, Victim $victim): Journal;
 
     /**
-     * @param  JournalUpdateDto  $journalUpdateDto
+     * @param  JournalUpdateDto  $journalDto
      *
      * @return Journal
      */
-    function update(JournalUpdateDto $journalUpdateDto): Journal;
+    function update(JournalUpdateDto $journalDto): Journal;
 
     /**
      * @param  int  $id

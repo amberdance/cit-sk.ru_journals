@@ -50,16 +50,16 @@ class JournalRepositoryImpl implements JournalRepository
     /**
      * @inheritDoc
      */
-    public function update(JournalUpdateDto $journalUpdateDto): Journal
+    public function update(JournalUpdateDto $journalDto): Journal
     {
-        $journal = Journal::findOrFail($journalUpdateDto->id);
+        $journal = Journal::findOrFail($journalDto->id);
 
-        foreach ($journalUpdateDto->toArray() as $key => $value) {
+        foreach ($journalDto->toArray() as $key => $value) {
             if ($journal->$key instanceof Model) {
                 continue;
             }
 
-            $journal->$key = $journalUpdateDto->$key;
+            $journal->$key = $value;
         }
 
         $journal->save();
