@@ -51,7 +51,7 @@ class JournalServiceImpl implements JournalService {
     /**
      * @inheritDoc
      */
-    function delete(int $id) {
+    function delete(int $id): bool {
         return $this->journalRepository->delete($id);
     }
 }

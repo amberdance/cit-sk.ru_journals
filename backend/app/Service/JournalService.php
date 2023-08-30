@@ -23,8 +23,8 @@ interface JournalService {
     /**
      * @param  int  $id
      *
-     * @return mixed
+     * @return bool
      */
-    function delete(int $id);
+    function delete(int $id): bool;
 
 }
