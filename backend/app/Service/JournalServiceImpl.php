@@ -11,7 +11,8 @@ use App\Repository\JournalRepository;
 use App\Repository\VictimRepository;
 use Illuminate\Support\Facades\DB;
 
-class JournalServiceImpl implements JournalService {
+class JournalServiceImpl implements JournalService
+{
 
     private JournalRepository $journalRepository;
     private AttackerRepository $attackerRepository;
@@ -19,9 +20,9 @@ class JournalServiceImpl implements JournalService {
 
 
     public function __construct(
-            JournalRepository  $journalRepository,
-            AttackerRepository $attackerRepository,
-            VictimRepository   $victimRepository
+        JournalRepository $journalRepository,
+        AttackerRepository $attackerRepository,
+        VictimRepository $victimRepository
     ) {
         $this->journalRepository = $journalRepository;
         $this->attackerRepository = $attackerRepository;
@@ -31,44 +32,57 @@ class JournalServiceImpl implements JournalService {
     /**
      * @inheritDoc
      */
-    public function create(JournalCreateDto $journalRequestDto): JournalResource
+    public function findAll(): JournalCollection
     {
-        return DB::transaction(function () use ($journalRequestDto) {
-            $attacker = $this->attackerRepository->create($journalRequestDto->attacker);
-            $victim = $this->victimRepository->create($journalRequestDto->victim);
-            $journal = $this->journalRepository->create($journalRequestDto, $attacker, $victim);
+        return new JournalCollection($this->journalRepository->findAll());
+    }
+
+    /**
+     * @inheritDoc
+     */
+    function findById(int $id): JournalResource
+    {
+        return new JournalResource($this->journalRepository->findById($id));
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function create(JournalCreateDto $journalDto): JournalResource
+    {
+        return DB::transaction(function () use ($journalDto) {
+            $attacker = $this->attackerRepository->create($journalDto->attacker);
+            $victim = $this->victimRepository->create($journalDto->victim);
+            $journal = $this->journalRepository->create($journalDto, $attacker, $victim);
 
             return new JournalResource($journal);
         });
     }
 
-
     /**
      * @inheritDoc
      */
-    public function findAll(): JournalCollection {
-        return $this->journalRepository->findAll();
+    public function update(JournalUpdateDto $journalDto): JournalResource
+    {
+        return DB::transaction(function () use ($journalDto) {
+            if ($journalDto->attacker) {
+                $this->attackerRepository->update($journalDto->attacker);
+            }
+
+            if ($journalDto->victim) {
+                $this->victimRepository->update($journalDto->victim);
+            }
+
+            return new JournalResource($this->journalRepository->update($journalDto));
+        });
     }
 
     /**
      * @inheritDoc
      */
-    function findById(int $id): JournalResource {
-        return $this->journalRepository->findById($id);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    function delete(int $id): bool {
+    function delete(int $id): bool
+    {
         return $this->journalRepository->delete($id);
     }
 
-
-    /**
-     * @inheritDoc
-     */
-    public function update(JournalUpdateDto $journalUpdateDto): JournalResource {
-        return $this->journalRepository->update($journalUpdateDto);
-    }
 }

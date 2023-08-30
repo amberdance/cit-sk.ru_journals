@@ -10,11 +10,11 @@ use App\Http\Resources\JournalResource;
 
 interface JournalService {
     /**
-     * @param  JournalCreateDto  $journalRequestDto
+     * @param  JournalCreateDto  $journalDto
      *
      * @return JournalResource
      */
-    function create(JournalCreateDto $journalRequestDto): JournalResource;
+    function create(JournalCreateDto $journalDto): JournalResource;
 
     /**
      * @return JournalCollection
@@ -36,10 +36,10 @@ interface JournalService {
     function delete(int $id): bool;
 
     /**
-     * @param  JournalUpdateDto  $journalUpdateDto
+     * @param  JournalUpdateDto  $journalDto
      *
      * @return JournalResource
      */
-    public function update(JournalUpdateDto $journalUpdateDto): JournalResource;
+    public function update(JournalUpdateDto $journalDto): JournalResource;
 
 }

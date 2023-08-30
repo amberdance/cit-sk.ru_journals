@@ -4,40 +4,41 @@ namespace App\Repository;
 
 use App\Dto\Journal\JournalCreateDto;
 use App\Dto\Journal\JournalUpdateDto;
-use App\Http\Resources\JournalCollection;
-use App\Http\Resources\JournalResource;
 use App\Models\Attacker;
 use App\Models\Journal;
 use App\Models\Victim;
+use Illuminate\Database\Eloquent\Collection;
 
-interface JournalRepository {
+interface JournalRepository
+{
+
     /**
-     * @param  JournalCreateDto  $journalRequestDto
+     * @return Collection
+     */
+    function findAll(): Collection;
+
+    /**
+     * @param  int  $id
+     *
+     * @return Journal
+     */
+    function findById(int $id): Journal;
+
+    /**
+     * @param  JournalCreateDto  $journalDto
      * @param  Attacker          $attacker
      * @param  Victim            $victim
      *
      * @return Journal
      */
-    function create(JournalCreateDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal;
-
-    /**
-     * @return JournalCollection
-     */
-    function findAll(): JournalCollection;
-
-    /**
-     * @param  int  $id
-     *
-     * @return JournalResource
-     */
-    function findById(int $id): JournalResource;
+    function create(JournalCreateDto $journalDto, Attacker $attacker, Victim $victim): Journal;
 
     /**
      * @param  JournalUpdateDto  $journalUpdateDto
      *
-     * @return JournalResource
+     * @return Journal
      */
-    function update(JournalUpdateDto $journalUpdateDto): JournalResource;
+    function update(JournalUpdateDto $journalUpdateDto): Journal;
 
     /**
      * @param  int  $id
