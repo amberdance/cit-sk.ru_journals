@@ -160,6 +160,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryInjectionServiceProvider::class,
         App\Providers\ServiceInjectionServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
     ])->toArray(),
 
     /*
