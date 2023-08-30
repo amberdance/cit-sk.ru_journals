@@ -2,14 +2,15 @@
 
 namespace App\Repository;
 
+use App\Dto\AttackerDto;
 use App\Models\Attacker;
 
 interface AttackerRepository
 {
     /**
-     * @param  array  $data
+     * @param  AttackerDto  $attackerDto
      *
      * @return Attacker
      */
-    function create(array $data): Attacker;
+    function create(AttackerDto $attackerDto): Attacker;
 }

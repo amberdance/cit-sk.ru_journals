@@ -2,19 +2,18 @@
 
 namespace App\Repository;
 
+use App\Dto\VictimDto;
 use App\Models\Victim;
 
-class VictimRepositoryImpl implements VictimRepository
-{
+class VictimRepositoryImpl implements VictimRepository {
 
     /**
      * @inheritDoc
      */
-    function create(array $data): Victim
-    {
+    function create(VictimDto $victimDto): Victim {
         $victim = new Victim();
-        $victim->ipv4 = $data["ipv4"];
-        $victim->owner = $data["owner"];
+        $victim->ipv4 = $victimDto->ipv4;
+        $victim->owner = $victimDto->owner;
         $victim->save();
 
         return $victim;

@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Dto\JournalRequestDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
 use App\Repository\AttackerRepository;
@@ -9,8 +10,7 @@ use App\Repository\JournalRepository;
 use App\Repository\VictimRepository;
 use Illuminate\Support\Facades\DB;
 
-class JournalServiceImpl implements JournalService
-{
+class JournalServiceImpl implements JournalService {
 
     private JournalRepository $journalRepository;
     private AttackerRepository $attackerRepository;
@@ -18,9 +18,9 @@ class JournalServiceImpl implements JournalService
 
 
     public function __construct(
-        JournalRepository $journalRepository,
-        AttackerRepository $attackerRepository,
-        VictimRepository $victimRepository
+            JournalRepository  $journalRepository,
+            AttackerRepository $attackerRepository,
+            VictimRepository   $victimRepository
     ) {
         $this->journalRepository = $journalRepository;
         $this->attackerRepository = $attackerRepository;
@@ -30,12 +30,11 @@ class JournalServiceImpl implements JournalService
     /**
      * @inheritDoc
      */
-    public function create(array $data): JournalResource
-    {
-        return DB::transaction(function () use ($data) {
-            $attacker = $this->attackerRepository->create($data["attacker"]);
-            $victim = $this->victimRepository->create($data["victim"]);
-            $journal = $this->journalRepository->create($data, $attacker, $victim);
+    public function create(JournalRequestDto $journalRequestDto): JournalResource {
+        return DB::transaction(function () use ($journalRequestDto) {
+            $attacker = $this->attackerRepository->create($journalRequestDto->attacker);
+            $victim = $this->victimRepository->create($journalRequestDto->victim);
+            $journal = $this->journalRepository->create($journalRequestDto, $attacker, $victim);
 
             return new JournalResource($journal);
         });
@@ -45,8 +44,7 @@ class JournalServiceImpl implements JournalService
     /**
      * @inheritDoc
      */
-    public function findAll(): JournalCollection
-    {
+    public function findAll(): JournalCollection {
         return $this->journalRepository->findAll();
     }
 }
