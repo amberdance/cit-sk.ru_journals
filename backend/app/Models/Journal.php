@@ -32,6 +32,7 @@ class Journal extends Model {
             "is_closed"              => "boolean",
     ];
 
+    protected $fillable = [];
     protected $with = ['attacker', 'victim'];
 
     public function attacker(): HasOne {

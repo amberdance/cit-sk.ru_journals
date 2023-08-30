@@ -2,13 +2,13 @@
 
 namespace App\Repository;
 
-use App\Dto\AttackerDto;
+use App\Dto\Attacker\AttackerDto;
 use App\Models\Attacker;
 
 interface AttackerRepository
 {
     /**
-     * @param  AttackerDto  $attackerDto
+     * @param  \App\Dto\Attacker\AttackerDto  $attackerDto
      *
      * @return Attacker
      */

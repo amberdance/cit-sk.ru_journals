@@ -3,7 +3,8 @@
 namespace App\Repository;
 
 
-use App\Dto\JournalDto;
+use App\Dto\Journal\JournalDto;
+use App\Dto\Journal\JournalUpdateDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
 use App\Models\Attacker;
@@ -45,8 +46,32 @@ class JournalRepositoryImpl implements JournalRepository {
     /**
      * @inheritDoc
      */
-    public function update(array $data): Journal {
-        // TODO: Implement update() method.
+    public function update(JournalUpdateDto $journalUpdateDto): JournalResource {
+        $journal = Journal::findOrFail($journalUpdateDto->id);
+
+        if ($journalUpdateDto->detection_date) {
+            $journal->detection_date = $journalUpdateDto->detection_date;
+        }
+
+        if ($journalUpdateDto->group_notice_date) {
+            $journal->group_notice_date = $journalUpdateDto->group_notice_date;
+        }
+
+        if ($journalUpdateDto->zav_sector_notice_date) {
+            $journal->zav_sector_notice_date = $journalUpdateDto->zav_sector_notice_date;
+        }
+
+        if ($journalUpdateDto->group_notice_date) {
+            $journal->group_notice_date = $journalUpdateDto->group_notice_date;
+        }
+
+        if ($journalUpdateDto->is_closed) {
+            $journal->is_closed = $journalUpdateDto->is_closed;
+        }
+
+        $journal->save();
+
+        return new JournalResource($journal);
     }
 
     /**

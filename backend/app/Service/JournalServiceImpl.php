@@ -2,7 +2,8 @@
 
 namespace App\Service;
 
-use App\Dto\JournalDto;
+use App\Dto\Journal\JournalDto;
+use App\Dto\Journal\JournalUpdateDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
 use App\Repository\AttackerRepository;
@@ -63,4 +64,10 @@ class JournalServiceImpl implements JournalService {
     }
 
 
+    /**
+     * @inheritDoc
+     */
+    public function update(JournalUpdateDto $journalUpdateDto): JournalResource {
+        return $this->journalRepository->update($journalUpdateDto);
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Dto\VictimDto;
+use App\Dto\Victim\VictimDto;
 use App\Models\Victim;
 
 class VictimRepositoryImpl implements VictimRepository {

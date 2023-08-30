@@ -2,7 +2,8 @@
 
 namespace App\Service;
 
-use App\Dto\JournalDto;
+use App\Dto\Journal\JournalDto;
+use App\Dto\Journal\JournalUpdateDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
 
@@ -33,5 +34,12 @@ interface JournalService {
      * @return bool
      */
     function delete(int $id): bool;
+
+    /**
+     * @param  JournalUpdateDto  $journalUpdateDto
+     *
+     * @return JournalResource
+     */
+    public function update(JournalUpdateDto $journalUpdateDto): JournalResource;
 
 }

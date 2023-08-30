@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Dto\AttackerDto;
+use App\Dto\Attacker\AttackerDto;
 use App\Models\Attacker;
 
 class AttackerRepositoryImpl implements AttackerRepository {

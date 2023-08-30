@@ -9,8 +9,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
-use function PHPUnit\Framework\assertNull;
-
 
 class JournalControllerTest extends TestCase {
     use RefreshDatabase, WithoutMiddleware;
@@ -69,7 +67,7 @@ class JournalControllerTest extends TestCase {
     public function testSoftDelete() {
         $journal = Journal::factory()->create();
         $this->deleteJson(self::$endpoint."/".$journal->id)->assertNoContent();
-        assertNull(Journal::find($journal->id));
+        self::assertNull(Journal::find($journal->id));
     }
 
     public function testWhenResourceExistsThenJournalReturned() {
@@ -81,5 +79,12 @@ class JournalControllerTest extends TestCase {
         $this->getJson(self::$endpoint.rand(999, 9999))->assertNotFound();
     }
 
+    public function testPartialUpdate() {
+        $journal = Journal::factory()->create();
+        $newJournalData = Journal::factory()->makeJournalWithRelations();
+        $newJournalData["is_closed"] = true;
+
+        $this->patchJson(self::$endpoint."/".$journal->id, $newJournalData)->assertOk();
+    }
 
 }

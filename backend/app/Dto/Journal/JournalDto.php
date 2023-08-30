@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Dto;
+namespace App\Dto\Journal;
 
+use App\Dto\Attacker\AttackerDto;
+use App\Dto\Victim\VictimDto;
 use DateTime;
 use WendellAdriel\ValidatedDTO\Casting\CarbonCast;
 use WendellAdriel\ValidatedDTO\Casting\DTOCast;

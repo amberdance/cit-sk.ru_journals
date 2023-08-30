@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Dto\JournalDto;
+use App\Dto\Journal\JournalDto;
+use App\Dto\Journal\JournalUpdateDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
-use App\Models\Journal;
 use App\Service\JournalService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -48,13 +48,15 @@ class JournalController extends Controller {
         return $this->journalService->findById($id);
     }
 
+
     /**
-     * @param  Request  $request
-     * @param  Journal  $journal
-     *
-     * @return void
+     * @throws CastTargetException
+     * @throws MissingCastTypeException
      */
-    public function update(Request $request, Journal $journal) {
+    public function update(Request $request, int $id) {
+        $request->request->add(["id" => $id]);
+
+        return $this->journalService->update(JournalUpdateDto::fromRequest($request));
     }
 
     /**

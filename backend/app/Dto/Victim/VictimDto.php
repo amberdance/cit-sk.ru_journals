@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dto;
+namespace App\Dto\Victim;
 
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
