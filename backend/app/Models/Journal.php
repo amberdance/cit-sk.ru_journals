@@ -10,13 +10,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 /**
- * @property int     $id
- * @property int     $attacker_id
- * @property int     $victim_id
- * @property Carbon  $detection_date
- * @property Carbon  $group_notice_date
- * @property Carbon  $zav_sector_notice_date
- * @property boolean $is_closed
+ * @property int      $id
+ * @property int      $attacker_id
+ * @property int      $victim_id
+ * @property Attacker $attacker
+ * @property Victim   $victim
+ * @property Carbon   $detection_date
+ * @property Carbon   $group_notice_date
+ * @property Carbon   $zav_sector_notice_date
+ * @property boolean  $is_closed
  */
 class   Journal extends Model
 {
