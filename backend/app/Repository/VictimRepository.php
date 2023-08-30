@@ -18,7 +18,7 @@ interface VictimRepository
     /**
      * @param  VictimUpdateDto  $victimDto
      *
-     * @return mixed
+     * @return Victim
      */
     function update(VictimUpdateDto $victimDto): Victim;
 }

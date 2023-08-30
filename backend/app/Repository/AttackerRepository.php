@@ -18,7 +18,7 @@ interface AttackerRepository
     /**
      * @param  AttackerUpdateDto  $attackerDto
      *
-     * @return mixed
+     * @return Attacker
      */
     function update(AttackerUpdateDto $attackerDto): Attacker;
 }
