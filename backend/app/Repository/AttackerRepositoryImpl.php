@@ -3,9 +3,11 @@
 namespace App\Repository;
 
 use App\Dto\Attacker\AttackerCreateDto;
+use App\Dto\Attacker\AttackerUpdateDto;
 use App\Models\Attacker;
 
-class AttackerRepositoryImpl implements AttackerRepository {
+class AttackerRepositoryImpl implements AttackerRepository
+{
 
     /**
      * @inheritDoc
@@ -17,6 +19,22 @@ class AttackerRepositoryImpl implements AttackerRepository {
         $attacker->type = $attackerDto->type;
         $attacker->description = $attackerDto->description;
         $attacker->country = $attackerDto->country;
+        $attacker->save();
+
+        return $attacker;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    function update(AttackerUpdateDto $attackerDto): Attacker
+    {
+        $attacker = Attacker::findOrFail($attackerDto->id);
+
+        foreach ($attackerDto->toArray() as $key => $value) {
+            $attacker->$key = $value;
+        }
+
         $attacker->save();
 
         return $attacker;
