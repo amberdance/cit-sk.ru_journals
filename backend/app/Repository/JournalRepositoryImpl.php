@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 
-use App\Dto\JournalRequestDto;
+use App\Dto\JournalDto;
 use App\Http\Resources\JournalCollection;
 use App\Models\Attacker;
 use App\Models\Journal;
@@ -14,7 +14,7 @@ class JournalRepositoryImpl implements JournalRepository {
     /**
      * @inheritDoc
      */
-    public function create(JournalRequestDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal {
+    public function create(JournalDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal {
         $journal = new Journal();
         $journal->detection_date = $journalRequestDto->detection_date;
         $journal->zav_sector_notice_date = $journalRequestDto->zav_sector_notice_date;

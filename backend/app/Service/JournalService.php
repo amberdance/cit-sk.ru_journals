@@ -2,18 +2,18 @@
 
 namespace App\Service;
 
-use App\Dto\JournalRequestDto;
+use App\Dto\JournalDto;
 use App\Http\Resources\JournalCollection;
 use App\Http\Resources\JournalResource;
 
 
 interface JournalService {
     /**
-     * @param  JournalRequestDto  $journalRequestDto
+     * @param  JournalDto  $journalRequestDto
      *
      * @return JournalResource
      */
-    function create(JournalRequestDto $journalRequestDto): JournalResource;
+    function create(JournalDto $journalRequestDto): JournalResource;
 
     /**
      * @return JournalCollection

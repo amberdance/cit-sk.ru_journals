@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Dto\JournalRequestDto;
+use App\Dto\JournalDto;
 use App\Http\Resources\JournalCollection;
 use App\Models\Attacker;
 use App\Models\Journal;
@@ -10,13 +10,13 @@ use App\Models\Victim;
 
 interface JournalRepository {
     /**
-     * @param  JournalRequestDto  $journalRequestDto
-     * @param  Attacker           $attacker
-     * @param  Victim             $victim
+     * @param  JournalDto  $journalRequestDto
+     * @param  Attacker    $attacker
+     * @param  Victim      $victim
      *
      * @return Journal
      */
-    function create(JournalRequestDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal;
+    function create(JournalDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal;
 
     /**
      * @return JournalCollection

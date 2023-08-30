@@ -7,7 +7,7 @@ use WendellAdriel\ValidatedDTO\Casting\CarbonCast;
 use WendellAdriel\ValidatedDTO\Casting\DTOCast;
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
-class JournalRequestDto extends ValidatedDTO {
+class JournalDto extends ValidatedDTO {
     public DateTime $detection_date;
     public DateTime $group_notice_date;
     public DateTime $zav_sector_notice_date;
