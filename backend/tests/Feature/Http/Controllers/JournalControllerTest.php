@@ -9,6 +9,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
+use function PHPUnit\Framework\assertNull;
+
 
 class JournalControllerTest extends TestCase {
     use RefreshDatabase, WithoutMiddleware;
@@ -19,7 +21,7 @@ class JournalControllerTest extends TestCase {
         $countOfJournals = 10;
         Journal::factory($countOfJournals)->create();
 
-        $this->assertDatabaseCount(self::getTableName(), $countOfJournals);
+        $this->assertDatabaseCount(Journal::class, $countOfJournals);
         $this->getJson(self::$endpoint)
                 ->assertOk()
                 ->assertJsonCount($countOfJournals, "data");
@@ -64,8 +66,10 @@ class JournalControllerTest extends TestCase {
         $this->postJson(self::$endpoint, $jsonPayload)->assertStatus(422);
     }
 
-    private static function getTableName() {
-        return Journal::getModel()->getTable();
+    public function testSoftDelete() {
+        $journal = Journal::factory()->create();
+        $this->deleteJson(self::$endpoint."/".$journal->id)->assertNoContent();
+        assertNull(Journal::find($journal->id));
     }
 
 

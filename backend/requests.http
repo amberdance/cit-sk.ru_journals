@@ -1,3 +1,7 @@
+DELETE http://localhost:9000/api/journals/1
+Accept: application/json
+
+###
 GET http://localhost:9000/api/journals
 Accept: application/json
 

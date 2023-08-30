@@ -52,6 +52,6 @@ class JournalRepositoryImpl implements JournalRepository {
      * @inheritDoc
      */
     public function delete(int $id): bool {
-        // TODO: Implement delete() method.
+        return (bool) Journal::find($id)->delete();
     }
 }

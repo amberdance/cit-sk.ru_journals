@@ -47,4 +47,11 @@ class JournalServiceImpl implements JournalService {
     public function findAll(): JournalCollection {
         return $this->journalRepository->findAll();
     }
+
+    /**
+     * @inheritDoc
+     */
+    function delete(int $id) {
+        return $this->journalRepository->delete($id);
+    }
 }

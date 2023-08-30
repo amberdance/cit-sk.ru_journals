@@ -36,6 +36,9 @@ class JournalController extends Controller {
     public function update(Request $request, Journal $journal) {
     }
 
-    public function destroy(Journal $journal) {
+    public function destroy(int $id) {
+        $this->journalService->delete($id);
+
+        return response()->noContent();
     }
 }

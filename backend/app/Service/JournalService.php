@@ -20,4 +20,11 @@ interface JournalService {
      */
     function findAll(): JournalCollection;
 
+    /**
+     * @param  int  $id
+     *
+     * @return mixed
+     */
+    function delete(int $id);
+
 }
