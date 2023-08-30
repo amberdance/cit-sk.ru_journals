@@ -15,7 +15,7 @@ class JournalRepositoryImpl implements JournalRepository {
      * @inheritDoc
      */
     public function create(JournalRequestDto $journalRequestDto, Attacker $attacker, Victim $victim): Journal {
-        $journal = $journalRequestDto->toModel(Journal::class);
+        $journal = new Journal();
         $journal->detection_date = $journalRequestDto->detection_date;
         $journal->zav_sector_notice_date = $journalRequestDto->zav_sector_notice_date;
         $journal->group_notice_date = $journalRequestDto->group_notice_date;

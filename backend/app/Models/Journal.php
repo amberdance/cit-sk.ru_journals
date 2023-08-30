@@ -20,10 +20,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Journal extends Model {
     use HasFactory;
 
-    protected $fillable = [
-            "is_closed",
-    ];
-
     protected $hidden = [
             "deleted_at",
     ];
@@ -33,10 +29,6 @@ class Journal extends Model {
             'group_notice_date'      => 'datetime',
             'zav_sector_notice_date' => 'datetime',
             "is_closed"              => "boolean",
-    ];
-
-    protected $attributes = [
-            "is_closed" => false,
     ];
 
     protected $with = ['attacker', 'victim'];

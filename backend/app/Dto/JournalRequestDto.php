@@ -38,9 +38,7 @@ class JournalRequestDto extends ValidatedDTO {
     }
 
     protected function defaults(): array {
-        return [
-                "is_closed" => false,
-        ];
+        return [];
     }
 
 }
