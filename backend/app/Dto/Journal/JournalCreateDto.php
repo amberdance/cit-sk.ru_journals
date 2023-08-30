@@ -22,16 +22,17 @@ class JournalCreateDto extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'detection_date'             => ['required', 'date'],
-            'group_notice_date'          => ['required', 'date'],
-            'zav_sector_notice_date'     => ['required', 'date'],
-            'attacker'                   => ['required', 'array'],
-            'victim'                     => ['required', 'array'],
-                'is_closed'              => ['boolean'],
+            'detection_date'         => ['required', 'date'],
+            'group_notice_date'      => ['required', 'date'],
+            'zav_sector_notice_date' => ['required', 'date'],
+            'attacker'               => ['required', 'array'],
+            'victim'                 => ['required', 'array'],
+            'is_closed'              => ['boolean'],
         ];
     }
 
-    protected function casts(): array {
+    protected function casts(): array
+    {
         return [
             "attacker"               => new DTOCast(AttackerCreateDto::class),
             "victim"                 => new DTOCast(VictimCreateDto::class),
@@ -41,7 +42,8 @@ class JournalCreateDto extends ValidatedDTO
         ];
     }
 
-    protected function defaults(): array {
+    protected function defaults(): array
+    {
         return [];
     }
 

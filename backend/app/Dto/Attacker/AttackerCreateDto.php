@@ -15,19 +15,20 @@ class AttackerCreateDto extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'ipv4'            => ['required', 'ipv4'],
-            'type'            => ['required', 'string'],
-                'description' => ['required', 'string'],
-                'country'     => ['required', 'string'],
+            'ipv4'        => ['required', 'ipv4'],
+            'type'        => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'country'     => ['required', 'string'],
         ];
-
     }
 
-    protected function defaults(): array {
+    protected function defaults(): array
+    {
         return [];
     }
 
-    protected function casts(): array {
+    protected function casts(): array
+    {
         return [];
     }
 
