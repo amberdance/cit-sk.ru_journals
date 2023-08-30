@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property DateTime $zav_sector_notice_date
  * @property boolean  $is_closed
  */
-class   Journal extends Model
+class Journal extends Model
 {
     use HasFactory, SoftDeletes;
 
