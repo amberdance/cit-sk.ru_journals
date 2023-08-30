@@ -23,7 +23,7 @@ class JournalRequestDto extends ValidatedDTO {
                 'zav_sector_notice_date' => ['required', 'date'],
                 'attacker'               => ['required', 'array'],
                 'victim'                 => ['required', 'array'],
-                'is_closed'              => ['required', 'boolean'],
+                'is_closed'              => ['boolean'],
         ];
     }
 

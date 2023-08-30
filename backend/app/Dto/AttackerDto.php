@@ -13,10 +13,10 @@ class AttackerDto extends ValidatedDTO {
 
     protected function rules(): array {
         return [
-                'ipv4'        => ['required'],
-                'type'        => ['required'],
-                'description' => ['required'],
-                'country'     => ['required'],
+                'ipv4'        => ['required', 'ipv4'],
+                'type'        => ['required', 'string'],
+                'description' => ['required', 'string'],
+                'country'     => ['required', 'string'],
         ];
 
     }

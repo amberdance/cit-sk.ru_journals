@@ -11,8 +11,8 @@ class VictimDto extends ValidatedDTO {
 
     protected function rules(): array {
         return [
-                'ipv4'  => ['required'],
-                'owner' => ['required'],
+                'ipv4'  => ['required', 'ipv4'],
+                'owner' => ['required', 'string'],
         ];
     }
 

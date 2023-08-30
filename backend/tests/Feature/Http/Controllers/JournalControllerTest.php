@@ -4,42 +4,67 @@ namespace Http\Controllers;
 
 use App\Models\Attacker;
 use App\Models\Journal;
+use Date;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
 
-class JournalControllerTest extends TestCase
-{
+class JournalControllerTest extends TestCase {
     use RefreshDatabase, WithoutMiddleware;
 
     private static string $endpoint = "/api/journals";
 
-    public function testIndex()
-    {
+    public function testIndex() {
         $countOfJournals = 10;
         Journal::factory($countOfJournals)->create();
 
         $this->assertDatabaseCount(self::getTableName(), $countOfJournals);
         $this->getJson(self::$endpoint)
-             ->assertOk()
-             ->assertJsonCount($countOfJournals, "data");
+                ->assertOk()
+                ->assertJsonCount($countOfJournals, "data");
     }
 
-    public function testStore()
-    {
+    public function testStore() {
         $jsonPayload = Journal::factory()->makeJournalWithRelations();
 
         $this->postJson(self::$endpoint, $jsonPayload)
-             ->assertCreated()
-             ->assertJsonPath("data.attacker.id", Attacker::orderBy("id", "desc")->first("id")->id)
-             ->assertJsonPath("data.victim.id", Attacker::orderBy("id", "desc")->first("id")->id);
+                ->assertCreated()
+                ->assertJsonPath("data.attacker.id", Attacker::orderBy("id", "desc")->first("id")->id)
+                ->assertJsonPath("data.victim.id", Attacker::orderBy("id", "desc")->first("id")->id);
 
         self::assertGreaterThanOrEqual(1, Attacker::count("id"));
     }
 
-    private static function getTableName()
-    {
+    public function testJournalValidation() {
+        $jsonPayload = Journal::factory()->makeJournalWithRelations();
+        $jsonPayload["detection_date"] = "test";
+        $jsonPayload["group_notice_date"] = "test";
+        $jsonPayload["zav_sector_notice_date"] = "test";
+        unset($jsonPayload["is_closed"]);
+
+        $this->postJson(self::$endpoint, $jsonPayload)->assertStatus(422);
+    }
+
+    public function testAttackerValidation() {
+        $jsonPayload = Journal::factory()->makeJournalWithRelations();
+        $jsonPayload["attacker"]["ipv4"] = "test";
+        $jsonPayload["attacker"]["type"] = new Date();
+        $jsonPayload["attacker"]["description"] = false;
+        $jsonPayload["attacker"]["country"] = 12;
+
+        $this->postJson(self::$endpoint, $jsonPayload)->assertStatus(422);
+    }
+
+    public function testVictimValidation() {
+        $jsonPayload = Journal::factory()->makeJournalWithRelations();
+        $jsonPayload["victim"]["ipv4"] = "test";
+        $jsonPayload["victim"]["owner"] = false;
+
+        $this->postJson(self::$endpoint, $jsonPayload)->assertStatus(422);
+    }
+
+    private static function getTableName() {
         return Journal::getModel()->getTable();
     }
 
