@@ -1,1 +1,1 @@
-### Another laravel app for working purposes
+### Another Vuejs app for working purposes
