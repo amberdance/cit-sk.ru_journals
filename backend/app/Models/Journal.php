@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -15,9 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int      $victim_id
  * @property Attacker $attacker
  * @property Victim   $victim
- * @property Carbon   $detection_date
- * @property Carbon   $group_notice_date
- * @property Carbon   $zav_sector_notice_date
+ * @property DateTime $detection_date
+ * @property DateTime $group_notice_date
+ * @property DateTime $zav_sector_notice_date
  * @property boolean  $is_closed
  */
 class   Journal extends Model
