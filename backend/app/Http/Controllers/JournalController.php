@@ -12,22 +12,20 @@ use Illuminate\Http\Response;
 use WendellAdriel\ValidatedDTO\Exceptions\CastTargetException;
 use WendellAdriel\ValidatedDTO\Exceptions\MissingCastTypeException;
 
-class JournalController extends Controller {
+class JournalController extends Controller
+{
 
-    private JournalService $journalService;
 
-    /**
-     * @param  JournalService  $journalService
-     */
-    public function __construct(JournalService $journalService) {
-        $this->journalService = $journalService;
+    public function __construct(private readonly JournalService $journalService)
+    {
     }
 
 
     /**
      * @return JournalCollection
      */
-    public function index() {
+    public function index()
+    {
         return $this->journalService->findAll();
     }
 
@@ -35,7 +33,8 @@ class JournalController extends Controller {
      * @throws CastTargetException
      * @throws MissingCastTypeException
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         return $this->journalService->create(JournalCreateDto::fromRequest($request));
     }
 
@@ -44,7 +43,8 @@ class JournalController extends Controller {
      *
      * @return JournalResource
      */
-    public function show(int $id) {
+    public function show(int $id)
+    {
         return $this->journalService->findById($id);
     }
 
@@ -53,7 +53,8 @@ class JournalController extends Controller {
      * @throws CastTargetException
      * @throws MissingCastTypeException
      */
-    public function update(Request $request, int $id) {
+    public function update(Request $request, int $id)
+    {
         $request->request->add(["id" => $id]);
 
         return $this->journalService->update(JournalUpdateDto::fromRequest($request));
@@ -64,7 +65,8 @@ class JournalController extends Controller {
      *
      * @return Response
      */
-    public function destroy(int $id) {
+    public function destroy(int $id)
+    {
         $this->journalService->delete($id);
 
         return response()->noContent();

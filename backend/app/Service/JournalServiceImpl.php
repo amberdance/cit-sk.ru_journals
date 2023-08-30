@@ -14,19 +14,11 @@ use Illuminate\Support\Facades\DB;
 class JournalServiceImpl implements JournalService
 {
 
-    private JournalRepository $journalRepository;
-    private AttackerRepository $attackerRepository;
-    private VictimRepository $victimRepository;
-
-
     public function __construct(
-        JournalRepository $journalRepository,
-        AttackerRepository $attackerRepository,
-        VictimRepository $victimRepository
+        private readonly JournalRepository $journalRepository,
+        private readonly AttackerRepository $attackerRepository,
+        private readonly VictimRepository $victimRepository
     ) {
-        $this->journalRepository = $journalRepository;
-        $this->attackerRepository = $attackerRepository;
-        $this->victimRepository = $victimRepository;
     }
 
     /**
