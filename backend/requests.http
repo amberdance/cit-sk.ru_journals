@@ -1,0 +1,54 @@
+###
+POST http://localhost:9000/api/journals
+Content-Type: application/json
+
+{
+  "detection_date": "31.12.2023 13:21:50",
+  "group_notice_date": "31.12.2023 13:21:50",
+  "zav_sector_notice_date": "31.12.2023 13:21:50",
+  "victim": {
+    "ipv4": "242.102.40.248",
+    "owner": "repellendus"
+  },
+  "attacker": {
+    "ipv4": "35.29.229.187",
+    "type": "occaecati",
+    "description": "Quisquam enim qui voluptatem sed alias veniam corrupti. Harum consequatur totam inventore voluptates nam. Qui aut qui non provident at. Tempore fugit aut enim sit et exercitationem.",
+    "country": "Индия"
+  }
+}
+
+###
+GET http://localhost:9000/api/journals
+Accept: application/json
+
+###
+GET http://localhost:9000/api/journals/1
+Accept: application/json
+
+###
+DELETE http://localhost:9000/api/journals/1
+Accept: application/json
+
+###
+PATCH http://localhost:9000/api/journals/1
+Content-Type: application/json
+
+{
+  "detection_date": "01.01.2023 13:21:50",
+  "group_notice_date": "01.01.2023 13:21:50",
+  "zav_sector_notice_date": "01.01.2023 13:21:50",
+  "is_closed": true,
+  "victim": {
+    "id": 1,
+    "ipv4": "127.0.0.1",
+    "owner": "repellendus"
+  },
+  "attacker": {
+    "id": 1,
+    "ipv4": "127.0.0.1",
+    "type": "occaecati"
+  }
+}
+
+###
