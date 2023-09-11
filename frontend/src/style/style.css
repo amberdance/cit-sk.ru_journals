@@ -1,0 +1,15 @@
+:root {
+    --color-primary: #0096FF;
+    --color-inactive: #828282;
+    --color-succes: #5AE468;
+    --color-danger: #E45A5A;
+    --color-bg-primary: #FCFCFC;
+    --color-text-primary: #000000;
+    --color-text-secondary: #FFFFFF;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+}

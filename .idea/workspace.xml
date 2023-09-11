@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32384332-6420-4e87-b68e-ad81f1db0012" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.env.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.env.testing" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Dto/Attacker/AttackerCreateDto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Dto/Attacker/AttackerUpdateDto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Dto/Journal/JournalCreateDto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Dto/Journal/JournalUpdateDto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Dto/Victim/VictimCreateDto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Dto/Victim/VictimUpdateDto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Exceptions/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/JournalController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/TrustHosts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/ValidateSignature.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Resources/AttackerResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Resources/JournalCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Resources/JournalResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Resources/VictimResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Attacker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Journal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Victim.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Providers/RepositoryInjectionServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Providers/ServiceInjectionServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repository/AttackerRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repository/AttackerRepositoryImpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repository/JournalRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repository/JournalRepositoryImpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repository/VictimRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repository/VictimRepositoryImpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Service/JournalService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Service/JournalServiceImpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Utils/ResponseEntity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/artisan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/bootstrap/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/bootstrap/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/composer.phar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/broadcasting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/cors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/dto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/filesystems.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/hashing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/logging.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/queue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/sanctum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/services.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/factories/AttackerFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/factories/JournalFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/factories/VictimFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_29_18100_create_attackers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_29_18101_create_victims_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_29_18200_create_journals_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/requests.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/app/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/framework/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/framework/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/framework/testing/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/framework/views/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/storage/logs/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests/CreatesApplication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests/Feature/Http/Controllers/JournalControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2UwSeeZmMOGZyH3Odd8SqFz5y7K" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging frontend",
+    "javascript.nodejs.core.library.configured.version": "18.16.0",
+    "javascript.nodejs.core.library.typings.version": "18.16.0",
+    "last_opened_file_path": "D:/OSPanel/domains/cit-sk.ru_journals/frontend/node_modules/prettier",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "D:\\OSPanel\\domains\\cit-sk.ru_journals\\frontend\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "ts.external.directory.path": "D:\\OSPanel\\domains\\cit-sk.ru_journals\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.serve" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32384332-6420-4e87-b68e-ad81f1db0012" name="Changes" comment="" />
+      <created>1693849246765</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693849246765</updated>
+      <workItem from="1693849247781" duration="337000" />
+      <workItem from="1694066047183" duration="8454000" />
+      <workItem from="1694409500083" duration="4334000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
