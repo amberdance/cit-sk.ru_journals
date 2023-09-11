@@ -1,7 +1,6 @@
 <template>
-  <section class="login" id="login-page">
-    <div class="login__title">Авторизация</div>
-    <div class="login__form form"></div>
+  <section id="auth">
+
   </section>
 </template>
 

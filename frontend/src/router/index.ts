@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import LoginView from "@/views/AuthorizationView.vue";
+import AuthorizationView from "@/views/AuthorizationView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -14,9 +14,9 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
-    path: "/login",
-    name: "Login",
-    component: LoginView,
+    path: "/auth",
+    name: "Auth",
+    component: AuthorizationView,
   },
 ];
 
